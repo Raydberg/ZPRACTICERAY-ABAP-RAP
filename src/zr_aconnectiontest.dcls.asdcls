@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_ACONNECTIONTEST'
+@MappingRole: true
+define role ZR_ACONNECTIONTEST {
+  grant select on ZR_ACONNECTIONTEST
+  where TRUE;
+}

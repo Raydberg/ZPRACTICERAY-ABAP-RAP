@@ -1,0 +1,53 @@
+managed implementation in class ZBP_R_ACONNECTIONTEST unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_ACONNECTIONTEST alias ZrAconnectiontest
+persistent table ZACONNECTIONTEST
+extensible
+draft table ZACNNCTIONTEST_D
+etag master LocalLastChangedAt
+lock master total etag LastChangeAtt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreateBy,
+   LocalCreateAt,
+   LocalLastChangeBy,
+   LocalLastChangedAt,
+   LastChangeAtt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZACONNECTIONTEST corresponding extensible
+  {
+    UUID = UUID;
+    Carrid = CARRID;
+    Connid = CONNID;
+    AirportFrom = AIRPORT_FROM;
+    CityFrom = CITY_FROM;
+    CountryFrom = COUNTRY_FROM;
+    AirportTo = AIRPORT_TO;
+    CityTo = CITY_TO;
+    CountryTo = COUNTRY_TO;
+    LocalCreateBy = LOCAL_CREATE_BY;
+    LocalCreateAt = LOCAL_CREATE_AT;
+    LocalLastChangeBy = LOCAL_LAST_CHANGE_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangeAtt = LAST_CHANGE_ATT;
+  }
+
+}
